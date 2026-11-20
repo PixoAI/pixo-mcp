@@ -1,6 +1,6 @@
 # Pixo for Claude Code
 
-Use Pixo to find models for images, video, speech, and music from a Claude Code session. You can browse the model catalog, inspect a model's inputs, and estimate the credits a request will use before starting a generation.
+Generate images, videos, spoken audio, and music directly from Claude Code with your Pixo account. Describe what you want to create, and Claude can help you choose a Pixo model, check its inputs, estimate the credit cost, and retrieve the finished result.
 
 ## Connect your Pixo account
 
