@@ -1,0 +1,17 @@
+{
+  "name": "pixo-plugins",
+  "metadata": {
+    "description": "Pixo tools for media generation in Claude Code."
+  },
+  "owner": {
+    "name": "Pixo",
+    "email": "hello@pixo.video"
+  },
+  "plugins": [
+    {
+      "name": "pixo",
+      "source": "./plugins/pixo",
+      "description": "Generate images, video, speech, and music with your Pixo account."
+    }
+  ]
+}
