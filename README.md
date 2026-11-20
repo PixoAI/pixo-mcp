@@ -7,7 +7,7 @@ Use Pixo in Claude Code to discover image, video, speech, and music models, insp
 Run these commands in your terminal:
 
 ```sh
-claude plugin marketplace add PhotonAISG/pixo-mcp
+claude plugin marketplace add PixoAI/pixo-mcp
 claude plugin install pixo@pixo-plugins
 ```
 
