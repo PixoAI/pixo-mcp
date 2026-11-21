@@ -1,0 +1,13 @@
+{
+  "name": "pixo-plugins",
+  "owner": {
+    "name": "Pixo",
+    "email": "hello@pixo.video"
+  },
+  "plugins": [
+    {
+      "name": "pixo",
+      "source": "./plugins/pixo-cursor"
+    }
+  ]
+}

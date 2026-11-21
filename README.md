@@ -44,6 +44,10 @@ To get a credit estimate without starting a generation, ask Claude:
 Estimate the Pixo credits for the paper boat video before generating it. Wait for my approval.
 ```
 
+## Cursor plugin
+
+Use Pixo in Cursor to generate images, videos, speech, and music. See the [Cursor setup instructions](plugins/pixo-cursor/README.md).
+
 ## OpenAI plugin
 
 Install Pixo from this GitHub marketplace in Codex or package it for the OpenAI submission dashboard. See the [OpenAI plugin instructions](plugins/pixo-openai/README.md).

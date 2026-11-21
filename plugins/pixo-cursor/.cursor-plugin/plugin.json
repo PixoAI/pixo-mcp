@@ -1,0 +1,15 @@
+{
+  "name": "pixo",
+  "displayName": "Pixo",
+  "version": "0.1.0",
+  "description": "Generate images, videos, speech, and music in Cursor with your Pixo account.",
+  "author": {
+    "name": "Pixo",
+    "email": "hello@pixo.video"
+  },
+  "homepage": "https://pixo.video",
+  "repository": "https://github.com/PixoAI/pixo-mcp",
+  "license": "MIT",
+  "keywords": ["image", "video", "speech", "music"],
+  "logo": "assets/pixo-icon.svg"
+}
