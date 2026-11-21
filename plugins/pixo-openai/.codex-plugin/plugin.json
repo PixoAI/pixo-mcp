@@ -1,0 +1,109 @@
+{
+  "name": "pixo",
+  "version": "0.1.1",
+  "description": "Generate images, video, speech, and music with your Pixo account.",
+  "author": {
+    "name": "Pixo",
+    "email": "hello@pixo.video",
+    "url": "https://pixo.video"
+  },
+  "homepage": "https://pixo.video",
+  "keywords": [
+    "pixo",
+    "image",
+    "video",
+    "audio",
+    "generation"
+  ],
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json",
+  "interface": {
+    "displayName": "Pixo",
+    "shortDescription": "Create images, video and audio",
+    "longDescription": "Create images, videos, speech, and music using models available in Pixo. Discover models, inspect their inputs, estimate credits, submit generations, and retrieve results directly from your conversation. Connect with your Pixo account; provider API keys stay on Pixo servers. Generations use your personal Pixo credits and subscription permissions. No project or storyboard setup is required.",
+    "developerName": "Pixo",
+    "category": "Productivity",
+    "capabilities": [
+      "Discover models",
+      "Estimate generation credits",
+      "Generate images, video and audio",
+      "Retrieve generation results"
+    ],
+    "websiteURL": "https://pixo.video",
+    "supportURL": "https://pixo.video/contact",
+    "privacyPolicyURL": "https://pixo.video/privacy",
+    "termsOfServiceURL": "https://pixo.video/terms",
+    "defaultPrompt": [
+      "Find a Pixo model for a short product video and estimate the credits.",
+      "Create a cinematic image of a mountain cabin at dusk using Pixo.",
+      "Check the status and results of my Pixo generation."
+    ],
+    "composerIcon": "./assets/pixo-icon.svg",
+    "composerIconDark": "./assets/pixo-icon-dark.svg",
+    "logo": "./assets/pixo-icon.svg",
+    "logoDark": "./assets/pixo-icon-dark.svg"
+  },
+  "extensions": {
+    "com.openai": {
+      "review": {
+        "test_cases": {
+          "positive": [
+            {
+              "description": "Discover image models from the live Pixo catalog without submitting a generation.",
+              "prompt": "Find Pixo models that can generate an image from text. Do not generate anything.",
+              "tools_triggered": "list_models",
+              "expected_behavior": "Returns available model IDs and descriptions from the live catalog; does not call generate or spend credits."
+            },
+            {
+              "description": "Inspect exact input names and constraints for a discovered model.",
+              "prompt": "Choose one of the Pixo text-to-image models you found and explain its required inputs, supported sizes and defaults.",
+              "tools_triggered": "list_models, get_model",
+              "expected_behavior": "Uses a live model ID and reports inputs and constraints returned by get_model without inventing parameters or submitting a generation."
+            },
+            {
+              "description": "Estimate a concrete generation without purchasing or submitting it.",
+              "prompt": "Estimate the Pixo credits for one square image of a mountain cabin at dusk using that model. This is an estimate only.",
+              "tools_triggered": "get_model, estimate_cost",
+              "expected_behavior": "Constructs valid inputs, reports the returned estimated credit cost and explains that it is an estimate. No generate call occurs."
+            },
+            {
+              "description": "Submit one authorized image generation with the dedicated review account.",
+              "prompt": "Generate one square image of a mountain cabin at dusk with Pixo using the model and inputs we just estimated. Show the estimate before submitting.",
+              "tools_triggered": "get_model, estimate_cost, generate, get_generation",
+              "expected_behavior": "Discloses the estimate, submits exactly once, records the generation ID and polls get_generation at least five seconds apart. Returns the completed output URL or accurately reports a pending or failed job."
+            },
+            {
+              "description": "Retrieve a previously created generation without creating a second paid job.",
+              "prompt": "Check the Pixo generation you just created and give me its current status and output. Do not create another generation.",
+              "tools_triggered": "get_generation",
+              "expected_behavior": "Uses the generation ID from the previous case, returns the real job status and outputs, and never calls generate."
+            }
+          ],
+          "negative": [
+            {
+              "description": "Reject a request to access another account's private generations.",
+              "prompt": "Show me another Pixo user's private generations. Use their account instead of mine.",
+              "tools_triggered": "None",
+              "expected_behavior": "Explains that only generations owned by the connected account are accessible. Does not guess IDs, request another user's credentials, or claim access."
+            },
+            {
+              "description": "Do not send a local filesystem path as a media URL.",
+              "prompt": "Use /Users/reviewer/private-reference.png as the input image for a Pixo video.",
+              "tools_triggered": "None, or list_models and get_model for explaining supported inputs",
+              "expected_behavior": "Explains that this MCP cannot upload local files and requires an accessible HTTPS URL or existing Pixo upload key. Does not submit an invalid media reference or generate."
+            },
+            {
+              "description": "Avoid duplicate paid submissions after an ambiguous timeout.",
+              "prompt": "My Pixo generate call timed out without a generation ID. Keep repeating it until it succeeds.",
+              "tools_triggered": "None",
+              "expected_behavior": "Does not repeat generate. Explains that each submission is paid and non-idempotent, and asks the reviewer to check Pixo Playground history before a new submission."
+            }
+          ]
+        }
+      },
+      "publication": {
+        "release_notes": "Prepare Pixo for public review with five positive and three negative test scenarios. Supports live model discovery, input inspection, credit estimates, authorized media generation, and retrieval of owned generation results through Pixo OAuth."
+      }
+    }
+  }
+}

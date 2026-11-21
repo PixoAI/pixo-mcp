@@ -38,6 +38,10 @@ To get a credit estimate without starting a generation, ask Claude:
 Estimate the Pixo credits for the paper boat video before generating it. Wait for my approval.
 ```
 
+## OpenAI plugin
+
+Install Pixo from this GitHub marketplace in Codex or package it for the OpenAI submission dashboard. See the [OpenAI plugin instructions](plugins/pixo-openai/README.md).
+
 ## Connect another MCP client
 
 Add `https://api.pixo.video/mcp/models/` as a remote HTTP MCP server and complete the OAuth prompt in your client.

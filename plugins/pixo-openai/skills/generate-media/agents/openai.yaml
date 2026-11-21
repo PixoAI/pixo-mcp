@@ -1,0 +1,13 @@
+---
+interface:
+  display_name: "Pixo Media"
+  short_description: "Generate images, video and audio with Pixo"
+  default_prompt: "Use $generate-media to find a Pixo model and estimate credits for my idea."
+
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "pixo"
+      description: "Pixo models and generation tools"
+      transport: "streamable_http"
+      url: "https://api.pixo.video/mcp/models/"

@@ -1,0 +1,7 @@
+{
+  "mcpServers": {
+    "pixo": {
+      "url": "https://api.pixo.video/mcp/models/"
+    }
+  }
+}

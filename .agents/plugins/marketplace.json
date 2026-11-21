@@ -1,0 +1,20 @@
+{
+  "name": "pixo-plugins",
+  "interface": {
+    "displayName": "Pixo"
+  },
+  "plugins": [
+    {
+      "name": "pixo",
+      "source": {
+        "source": "local",
+        "path": "./plugins/pixo-openai"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}
