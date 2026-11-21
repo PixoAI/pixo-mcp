@@ -37,8 +37,8 @@ this MCP does not provide idempotent retries or a history-listing tool.
 
 When `get_generation` reports a completed result, show it in the conversation
 if the matching preview tool is available. For an image, call `preview_pixo_image`.
-For a video, call `preview_pixo_video` to show a player. Pass the same generation
-ID and call the preview tool once. If the preview is unavailable or fails, share
+For a video, call `preview_pixo_video`. For music, call `preview_pixo_music` to
+show an audio player. Pass the same generation ID and call the preview tool once. If the preview is unavailable or fails, share
 the original media link from the generation result.
 
 Report the returned job status and use the actual output URLs or text. A pending
