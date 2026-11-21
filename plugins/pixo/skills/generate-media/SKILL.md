@@ -35,6 +35,11 @@ Never call `generate` again to check progress. After an ambiguous submission
 timeout, ask the user to check Pixo Playground history before submitting again;
 this MCP does not provide idempotent retries or a history-listing tool.
 
+When `get_generation` reports a completed image and `preview_pixo_image` is
+available, call it once with the same generation ID to show the image in the
+conversation. Use the original image link from the generation result as a
+fallback if the preview tool is unavailable or fails.
+
 Report the returned job status and use the actual output URLs or text. A pending
 job is not a completed generation. If execution fails, explain the returned
 error before proposing changes; a new submission is another paid request.
