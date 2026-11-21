@@ -2,6 +2,12 @@
 
 Generate images, videos, spoken audio, and music directly from Claude Code with your Pixo account. Describe what you want to create, and Claude can help you choose a Pixo model, check its inputs, estimate the credit cost, and retrieve the finished result.
 
+## Install in Claude Chat or Cowork
+
+[![Install in Claude](https://img.shields.io/badge/Install_in-Claude-D97757?style=for-the-badge&logo=claude&logoColor=white)](https://claude.ai/customize/plugins/new?marketplace=PixoAI%2Fpixo-mcp&plugin=pixo)
+
+Open the link, sync the Pixo marketplace if prompted, and install **Pixo**. Open the plugin's **Connectors** tab to connect your Pixo account if prompted.
+
 ## Install in Claude Code
 
 Run these commands in your terminal:
